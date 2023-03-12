@@ -1,38 +1,25 @@
 #include<stdio.h>
-void main()
-{
-	int a[100000],i,j,minj=0,minx=0,n;
-	
-	printf("How many element you want in array :");
+void main(){
+	int n,i,minj,minx,j,a[100];
+	printf("Enter no. of elements of array : ");
 	scanf("%d",&n);
-	
-	for(i=0;i<n;i++)
-	{
-		printf("Enter Element");
+	for(i=0;i<n;i++){
+		printf("Enter array element : ");
 		scanf("%d",&a[i]);
-	}
-	
-	for(i=0;i<n-2;i++)
-	{
-		minj=i;
+	}	
+	for(i=0;i<n-1;i++){
 		minx=a[i];
-		
-		for(j=i+1;j<n-1;j++)
-		{
-			if(a[j]<minx)
-			{
+		minj = i;
+		for(j=i+1;j<n;j++){
+			if(minx>a[j]){
 				minj=j;
 				minx=a[j];
 			}
-			a[minj]=a[i];
-			a[i]=minx;
 		}
-	}
-	
-	
-	
-	for(j=0;j<n;j++)
-	{
-		printf("%d \n",a[j]);
+		a[minj] = a[i];
+		a[i] = minx;
+	}	
+	for(i=0;i<n;i++){
+		printf("%d\n",a[i]);
 	}
 }
